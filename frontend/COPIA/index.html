@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJEMPLOS CON HTML</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+        <marquee behavior="alternate">
+          Este texto rebotará dentro de la marquesina.
+        </marquee>
+    </marquee>
+<div>
+    <h1>TEXTO TIPO TITULO</h1>
+    <h2>TEXTO TIPO SUBTITTULO</h2>
+    <h2 id="unico">TEXTOsubjtitulo 2</h2>
+    <h2 class="azul">TEXTO TIPO TITULO</h1>
+    <P>ESTE ES UN PARRAFO NO RESPETA CAMBIO DE LINEA</P>
+    <PRE>ESTE PARRAFO RESPETA CAMBIOS DE LINEA Y ESPACIOS
+        
+        ENTRE LINEAS QUE SE INCUYAN
+    </PRE>
+</div>
+<DIV>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname">  
+
+    <label for="cars">Choose a car:</label>
+    <select id="cars" name="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="fiat" SELECTED>Fiat</option>
+      <option value="audi">Audi</option>
+    </select> 
+
+    <label for="cars">Choose a car:</label>
+    <select id="cars" name="cars" size="4" multiple>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="fiat">Fiat</option>
+      <option value="audi">Audi</option>
+    </select> 
+
+    <textarea name="message" rows="10" cols="30">
+        puede digitar texto permite enter para continuar en la siguiente linea
+    </textarea> 
+
+    <button type="button" onclick="alert('Hello World!')">Click Me!</button> 
+    <button type="button" onclick="funcionjs()">Click Me!</button> 
+</DIV>
+<div>
+    <form action="/action_page.php">
+        <fieldset>
+          <legend>Personalia:</legend>
+          <label for="fname">First name:</label><br>
+          <input type="text" id="fname" name="fname" value="John"><br>
+          <label for="lname">Last name:</label><br>
+          <input type="text" id="lname" name="lname" value="Doe"><br><br>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form> 
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Checked checkbox
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Default radio
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Default checked radio
+        </label>
+      </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="1.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  <div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+  </div>
+  <script>src="myJs.js"</script>
+</body>
+</html>
+
