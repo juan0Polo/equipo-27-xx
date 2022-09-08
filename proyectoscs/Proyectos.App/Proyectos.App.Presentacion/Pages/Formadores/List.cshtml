@@ -12,7 +12,7 @@
                 <h2><div class="text-info">Lista de Formadores</h2>
             </div>
             <div class="col-sm-6">
-                <a asp-page="Crear" class="btn-primary btn-primary">Crear Nuevo Formador</a>
+                <a class="btn btn-primary btn-sm" asp-page="Crear">Crear Nuevo Formador</a>
             </div>            
         </div>    
     </div>
@@ -21,24 +21,24 @@
             <br /><br />
             <table class="table table-striped border">
                 <tr class="table-secondary">
-                    <th>ID</th>
-                    <th>IDENTIFICACION</th>
-                    <th>NOMBRES</th>
-                    <th>MAIL</th>
-                    <th>MOVIL</th>
-                    <th>ACTIVO</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().id)</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().identificacion)</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().nombre)</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().mail)</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().movil)</th>
+                    <th>@Html.DisplayNameFor(m => m.formadores.First().vigente)</th>
                     <th>ACCION1</th>
                     <th>ACCION2</th>
                     <th>ACCION3</th>
                 </tr>
                 @foreach (var item in Model.formadores)  {
                 <tr>
-                    <td>@item.id</td>
-                    <td>@item.identificacion</td>
-                    <td>@item.nombre</td>
-                    <td>@item.mail</td>
-                    <td>@item.movil</td>
-                    <td>@item.vigente</td>
+                    <td>@Html.DisplayFor(m => item.id)</td>
+                    <td>@Html.DisplayFor(m => item.identificacion)</td>
+                    <td>@Html.DisplayFor(m => item.nombre)</td>
+                    <td>@Html.DisplayFor(m => item.mail)</td>
+                    <td>@Html.DisplayFor(m => item.movil)</td>
+                    <td>@Html.DisplayFor(m => item.vigente)</td>
 
                     <td>
                         <a class="btn btn-primary btn-sm" asp-page="./Details" asp-route-formadorId="@item.id">

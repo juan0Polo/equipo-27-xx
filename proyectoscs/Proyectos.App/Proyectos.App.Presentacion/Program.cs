@@ -1,4 +1,12 @@
+//importar paquetes
+using Proyectos.App.Persistencia.Datos;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//configuracion conexion a la base de datos sql local db
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("ConexionSQLLocalDB")));
 
 // Add services to the container.
 builder.Services.AddRazorPages();
