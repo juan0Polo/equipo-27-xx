@@ -25,7 +25,15 @@ namespace Proyectos.App.Persistencia.AppRepositorios
         Tutor GetTutor(int? idTutor);
         Tutor UpdateTutor(Tutor tutor);
         void DeleteTutor(int idTutor); 
-    }
+
+        //contratos o firmas para los metodos Estudiante        
+        Estudiante AddEstudiante(Estudiante estudiante);
+        IEnumerable<Estudiante> GetAllEstudiantes(string? searchString);         
+        Estudiante GetEstudiante(int? idEstudiante);
+        Estudiante UpdateEstudiante(Estudiante estudiante);
+        void DeleteEstudiante(int idEstudiante); 
+
+    } //fin IRepositorios
 }
 
 

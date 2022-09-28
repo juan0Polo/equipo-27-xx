@@ -9,8 +9,8 @@ using Proyectos.App.Persistencia;
 namespace Proyectos.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220927194715_Inicial2")]
-    partial class Inicial2
+    [Migration("20220927232939_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

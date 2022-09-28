@@ -48,9 +48,6 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
             }
             if(formador.id > 0)
             {
-                Console.Write("vigente " + formador.vigente);                
-                if (formador.vigente == true) formador.vigente = true;
-                else formador.vigente = false;
                formador = _appContext.UpdateFormador(formador); 
             }
             return Redirect("List");

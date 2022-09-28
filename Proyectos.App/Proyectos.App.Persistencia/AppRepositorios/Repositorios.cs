@@ -12,6 +12,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
        private readonly AppContext _appContext;
        public IEnumerable<Formador> formadores {get; set;} 
        public IEnumerable<Tutor> tutores {get; set;} 
+       public IEnumerable<Estudiante> estudiantes {get; set;} 
 
        public Repositorios(AppContext appContext)
         {
@@ -40,9 +41,9 @@ namespace Proyectos.App.Persistencia.AppRepositorios
                 formadores = _appContext.formador;
             else{
                 //busca coincidencias entre los registros y la cadena enviada
-                //formadores = _appContext.formador.Where(s => s.identificacion.Contains(searchString));   
+                formadores = _appContext.formador.Where(s => s.identificacion.Contains(searchString));   
                 //busca solamente los que son exactamente igual a la cadena enviada 
-                formadores = _appContext.formador.Where(s => s.identificacion.Equals(searchString));    
+                //formadores = _appContext.formador.Where(s => s.identificacion.Equals(searchString));    
             }
             return formadores;
         }
@@ -129,6 +130,63 @@ namespace Proyectos.App.Persistencia.AppRepositorios
             var TutorEncontrado = _appContext.tutor.FirstOrDefault(p => p.id == idTutor);
             if (TutorEncontrado != null){                
                 _appContext.tutor.Remove(TutorEncontrado);
+                _appContext.SaveChanges();
+            }
+            return;
+        }
+
+        //repositorio para estudiantes
+        Estudiante IRepositorios.AddEstudiante(Estudiante estudiante)
+        {
+        try
+         {
+            var EstudianteAdicionado = _appContext.estudiante.Add( estudiante );  //INSERT en la BD
+            _appContext.SaveChanges();                  
+            return EstudianteAdicionado.Entity;
+          }catch
+            {
+                throw;
+            }
+        }
+
+        IEnumerable<Estudiante> IRepositorios.GetAllEstudiantes(string? searchString)
+        {
+            if (searchString == null)
+                estudiantes = _appContext.estudiante;
+            else{
+                //busca coincidencias entre los registros y la cadena enviada
+                //estudiantes = _appContext.estudiante.Where(s => s.identificacion.Contains(searchString));   
+                //busca solamente los que son exactamente igual a la cadena enviada 
+                estudiantes = _appContext.estudiante.Where(s => s.identificacion.Equals(searchString));    
+            }
+            return estudiantes;
+        }
+
+       Estudiante IRepositorios.GetEstudiante(int? idEstudiante)
+       {
+            return _appContext.estudiante.FirstOrDefault(p => p.id == idEstudiante);
+       }
+
+       Estudiante IRepositorios.UpdateEstudiante(Estudiante estudiante)
+        {    
+            var EstudianteEncontrado = _appContext.estudiante.FirstOrDefault(p => p.id == estudiante.id);
+            if (EstudianteEncontrado != null)
+            {
+                EstudianteEncontrado.identificacion  = estudiante.identificacion;
+                EstudianteEncontrado.nombre          = estudiante.nombre;
+                EstudianteEncontrado.mail            = estudiante.mail;
+                EstudianteEncontrado.movil           = estudiante.movil;
+                EstudianteEncontrado.vigente         = estudiante.vigente;
+                _appContext.SaveChanges();
+            }
+            return EstudianteEncontrado;
+        }
+
+        void IRepositorios.DeleteEstudiante(int idEstudiante)
+        {   
+            var EstudianteEncontrado = _appContext.estudiante.FirstOrDefault(p => p.id == idEstudiante);
+            if (EstudianteEncontrado != null){                
+                _appContext.estudiante.Remove(EstudianteEncontrado);
                 _appContext.SaveChanges();
             }
             return;

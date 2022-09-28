@@ -14,6 +14,7 @@ namespace Proyectos.App.Persistencia
         //poner aqui los modelos
         public DbSet<Formador> formador{get; set;}
         public DbSet<Tutor> tutor{get; set;}
+        public DbSet<Estudiante> estudiante{get; set;}
 
         //crear el deContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,7 +22,7 @@ namespace Proyectos.App.Persistencia
             if (!optionsBuilder.IsConfigured)
             {
             optionsBuilder
-           .UseSqlServer("Server=localhost; user id=sa; password=12345; Initial Catalog=BDProyectos84;");            
+           .UseSqlServer("Server=localhost; user id=sa; password=12345; Initial Catalog=BDProyectos27;");            
             }
         }      
 

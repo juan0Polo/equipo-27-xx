@@ -2,12 +2,12 @@
 
 namespace Proyectos.App.Persistencia.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Inicial2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "formador",
+                name: "estudiante",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -20,14 +20,14 @@ namespace Proyectos.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_formador", x => x.id);
+                    table.PrimaryKey("PK_estudiante", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "formador");
+                name: "estudiante");
         }
     }
 }
